@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && cp index.html dist/index.html",
+    "build-windows": "rollup -c && copy index.html .\\dist",
     "test": "mocha"
   },
   "repository": {
