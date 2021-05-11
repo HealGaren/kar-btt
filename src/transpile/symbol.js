@@ -16,17 +16,7 @@ const basicSymbolMap = [
     {from: '[', to:	'\u2820\u2836'},
     {from: ']', to:	'\u2836\u2820'},
     {from: '„', to:	'\u2820\u2826'},
-    {from: '“', to:	'\u2834\u2804'},
-    {from: '1', to:	'\u283c\u2801'},
-    {from: '2', to:	'\u283c\u2803'},
-    {from: '3', to:	'\u283c\u2809'},
-    {from: '4', to:	'\u283c\u2819'},
-    {from: '5', to:	'\u283c\u2811'},
-    {from: '6', to:	'\u283c\u280b'},
-    {from: '7', to:	'\u283c\u281b'},
-    {from: '8', to:	'\u283c\u2813'},
-    {from: '9', to:	'\u283c\u280a'},
-    {from: '0', to:	'\u283c\u281a'}
+    {from: '“', to:	'\u2834\u2804'}
 ];
 
 
