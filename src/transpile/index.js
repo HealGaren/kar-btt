@@ -1,6 +1,6 @@
 import {transpileAlphabet} from "./alphabet";
 import {transpileSymbol} from "./symbol";
 
-export function transpile(str, ignoreUppercase) {
-    return transpileAlphabet(transpileSymbol(str), ignoreUppercase);
+export function transpile(str, noUppercasePrefix) {
+    return transpileAlphabet(transpileSymbol(str), noUppercasePrefix);
 }

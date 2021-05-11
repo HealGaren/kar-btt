@@ -43,22 +43,16 @@ const alphabetMap = [
 ];
 
 
-export function transpileAlphabet(str, ignoreUppercase = false) {
+export function transpileAlphabet(str, noUppercasePrefix = false) {
     return alphabetMap.reduce((prevStr, curr) => {
         const fromUpper = curr.from[0];
         const fromLower = curr.from[1];
         const to = curr.to;
 
-        const upperReplacedStr = (() => {
-            if (ignoreUppercase) {
-                return prevStr;
-            } else {
-                return prevStr.replace(
-                    new RegExp(fromUpper, "g"),
-                    '\u2828' + to
-                );
-            }
-        })();
+        const upperReplacedStr = prevStr.replace(
+            new RegExp(fromUpper, "g"),
+            (noUppercasePrefix ? '' : '\u2828') + to
+        );
 
         const upperAndLowerReplacedStr = upperReplacedStr.replace(
             new RegExp(fromLower, "g"),
