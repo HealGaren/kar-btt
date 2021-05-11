@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c && cp index.html dist/index.html && cp style.css dist/style.css",
     "build-windows": "rollup -c && copy index.html .\\dist && copy style.css .\\dist",
-    "test": "mocha --require @babel/register"
+    "test": "mocha --require @babel/register --reporter json > test-results.json"
   },
   "repository": {
     "type": "git",
