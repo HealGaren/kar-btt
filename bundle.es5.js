@@ -124,20 +124,12 @@ var alphabetMap = [{
 }];
 
 function transpileAlphabet(str) {
-  var ignoreUppercase = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var noUppercasePrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return alphabetMap.reduce(function (prevStr, curr) {
     var fromUpper = curr.from[0];
     var fromLower = curr.from[1];
     var to = curr.to;
-
-    var upperReplacedStr = function () {
-      if (ignoreUppercase) {
-        return prevStr;
-      } else {
-        return prevStr.replace(new RegExp(fromUpper, "g"), "\u2828" + to);
-      }
-    }();
-
+    var upperReplacedStr = prevStr.replace(new RegExp(fromUpper, "g"), (noUppercasePrefix ? '' : "\u2828") + to);
     var upperAndLowerReplacedStr = upperReplacedStr.replace(new RegExp(fromLower, "g"), to);
     return upperAndLowerReplacedStr;
   }, str);
@@ -230,8 +222,8 @@ function transpileSymbol(str) {
   }, str);
 }
 
-function transpile(str, ignoreUppercase) {
-  return transpileAlphabet(transpileSymbol(str), ignoreUppercase);
+function transpile(str, noUppercasePrefix) {
+  return transpileAlphabet(transpileSymbol(str), noUppercasePrefix);
 }
 
 window.onload = function () {
