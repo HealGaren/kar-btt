@@ -18,6 +18,14 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Mocha Tests
+          path: test-results.json
+          reporter: mocha-json
+
       - name: Deploy with github-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
