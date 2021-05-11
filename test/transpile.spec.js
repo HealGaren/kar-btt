@@ -19,4 +19,9 @@ describe('Transpile', () => {
         expect(transpile(uppercaseSet, true)).to.equal(transpile(lowerCaseSet));
     });
 
+    it('2자리 이상의 숫자의 경우 숫자 표현 점자가 한 번만 나온다', () => {
+        expect(transpile('123 45')).to.equal('⠼⠁⠃⠉ ⠼⠙⠑')
+        expect(transpile('67')).to.equal('⠼⠋⠛')
+        expect(transpile('8')).to.equal('⠼⠓')
+    });
 });
