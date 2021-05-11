@@ -1,0 +1,10 @@
+#root {
+    display: flex;
+}
+
+#before, #after {
+    box-sizing: border-box;
+    resize: none;
+    flex: 1;
+    height: 500px;
+}
