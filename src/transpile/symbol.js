@@ -2,7 +2,7 @@ function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
-var basicSymbolMap = [
+const basicSymbolMap = [
     {from: '.', to:	'\u2832'},
     {from: ',', to:	'\u2802'},
     {from: ':', to:	'\u2812'},
@@ -30,16 +30,16 @@ var basicSymbolMap = [
 ];
 
 
-function transpileSymbol(str) {
-    return basicSymbolMap.reduce(function (prevStr, curr) {
-        var from = curr.from;
-        var to = curr.to;
-        
-        var replacedStr = prevStr.replace(
+export function transpileSymbol(str) {
+    return basicSymbolMap.reduce((prevStr, curr) => {
+        const from = curr.from;
+        const to = curr.to;
+
+        const replacedStr = prevStr.replace(
             new RegExp(escapeRegExp(from), "g"),
             to
         );
-        
+
         return replacedStr;
     }, str);
 }
