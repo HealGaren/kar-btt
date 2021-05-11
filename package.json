@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c && cp index.html dist/index.html && cp style.css dist/style.css",
     "build-windows": "rollup -c && copy index.html .\\dist && copy style.css .\\dist",
-    "test": "mocha"
+    "test": "mocha --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
+    "@babel/register": "^7.13.16",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "chai": "^4.3.4",
     "mocha": "^8.4.0",
     "rollup": "^2.47.0"
   },
